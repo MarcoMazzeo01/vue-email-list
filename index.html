@@ -29,7 +29,7 @@
 
 
     <div id="emailAPI">
-        <ol>
+        <ol v-if="emails.length == maxEmails">
             <li v-for="(email) in emails">{{email}}</li>
         </ol>
     </div>
