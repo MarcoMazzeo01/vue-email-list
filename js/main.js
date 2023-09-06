@@ -9,14 +9,23 @@ const emailAPI = createApp({
     },
 
     mounted() {
+        const emails = []
 
         for (i=0; i < this.maxEmails; i++) {
             axios
             .get('https://flynn.boolean.careers/exercises/api/random/mail')
             .then((response) => {
-                this.emails.push(response.data.response)
+                console.log(emails)
+                emails.push(response.data.response)
+
+                if (emails.length >= (this.maxEmails)) {
+                    console.log("Emails obtained.")
+                    this.emails = [...emails]
+                }
             })
         }
+
+  
 
 
     }
